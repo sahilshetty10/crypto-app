@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { PrismaClient } from "@prisma/client";
-import { InferGetServerSidePropsType } from "next";
 
 export async function getServerSideProps() {
   const prisma = new PrismaClient();
@@ -12,12 +11,10 @@ export async function getServerSideProps() {
   };
 }
 
-const index = ({
-  data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const index = ({ data }: any) => {
   return (
     <>
-      <div className="w-[80%] h-screen"></div>
+      <div className=""></div>
     </>
   );
 };
