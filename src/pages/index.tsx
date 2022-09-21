@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PrismaClient } from "@prisma/client";
+import axios from 'axios'
 
 export async function getServerSideProps() {
   const prisma = new PrismaClient();
@@ -12,9 +13,14 @@ export async function getServerSideProps() {
 }
 
 const index = ({ data }: any) => {
+  const handleUpdate = async () => {
+    let response = await axios.post('/api/updateDB')
+    let data = response.data
+    window.alert(JSON.stringify(data))
+  } 
   return (
     <>
-      <div className=""></div>
+      <div className=""><button onClick={handleUpdate}>Update DB</button></div>
     </>
   );
 };
