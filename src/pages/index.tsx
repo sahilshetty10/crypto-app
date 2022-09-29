@@ -21,7 +21,7 @@ const index = ({ data }: any) => {
     let data = response.data
     window.alert(JSON.stringify(data))
   } 
-  const closings: any = [["", "Price"]];
+  const closings: any = [["", "Price","Buy/Sell"]];
   data.map((d:any) => closings.push(["", parseFloat(d.closingPrice),d.longShortRatio > 2 ? 2 : 1]));
   return (
     <>
