@@ -22,12 +22,15 @@ const index = ({ data }: any) => {
     window.alert(JSON.stringify(data))
   } 
   const closings: any = [["", "Price"]];
-  data.map((d:any) => closings.push(["", parseFloat(d.closingPrice)]));
+  data.map((d:any) => closings.push(["", parseFloat(d.closingPrice),d.longShortRatio > 2 ? 2 : 1]));
   return (
     <>
       <div className="">
         <button onClick={handleUpdate}>Update DB</button>
-        <Chart chartType="Line" width="100%" height="100%" data={closings} />
+        <Chart chartType="Line" width="100%" height="100%" data={closings} options={{series: {
+              0: { axis: "Price" },
+              1: { axis: "Buy/Sell" },
+            }}}/>
       </div>
     </>
   );
