@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { PrismaClient } from "@prisma/client";
 import axios from 'axios'
+import { BarChart, Bar, CartesianGrid, XAxis, YAxis, Cell } from "recharts";
+
 
 export async function getServerSideProps() {
   const prisma = new PrismaClient();
