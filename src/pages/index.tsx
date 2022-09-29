@@ -16,8 +16,6 @@ export async function getServerSideProps() {
 }
 
 const index = ({ data }: any) => {
-  const [lowerValue,setLowerValue] = useState(1.1)
-  const [upperValue,setUpperValue] = useState(2)
   const handleUpdate = async () => {
     let response = await axios.post('/api/updateDB')
     let data = response.data
@@ -29,12 +27,7 @@ const index = ({ data }: any) => {
     <>
       <div className="">
         <button onClick={handleUpdate}>Update DB</button>
-        <input type="number" value={lowerValue} onChange={(e)=>setLowerValue(parseFloat(e.target.value))} placeholder="Enter Lower Value"/>
-        <input type="number" value={upperValue} onChange={(e)=>setUpperValue(parseFloat(e.target.value))} placeholder="Enter Upper Value"/>
-        <Chart chartType="Line" width="100%" height="100%" data={closings} options={{series: {
-              0: { axis: "Price" },
-              1: { axis: "Buy/Sell" },
-            }}}/>
+        <p>{JSON.stringify(data)}</p>
       </div>
     </>
   );
