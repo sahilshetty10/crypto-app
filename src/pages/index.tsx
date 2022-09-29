@@ -22,7 +22,7 @@ const index = ({ data }: any) => {
     window.alert(JSON.stringify(data))
   } 
   const closings: any = [["", "Price"]];
-  data.map((d):any => closings.push(["", parseFloat(d.closingPrice)]));
+  data.map((d:any) => closings.push(["", parseFloat(d.closingPrice)]));
   return (
     <>
       <div className="">
