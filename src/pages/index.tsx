@@ -1,7 +1,8 @@
 import React from "react";
 import { PrismaClient } from "@prisma/client";
 import axios from 'axios'
-import { BarChart, Bar, Cell } from "recharts";
+import { Chart } from "react-google-charts";
+
 
 
 export async function getServerSideProps() {
@@ -24,10 +25,7 @@ const index = ({ data }: any) => {
     <>
       <div className="">
         <button onClick={handleUpdate}>Update DB</button>
-        <BarChart data={data} height={600} width={600}>
-          <Bar dataKey="closingPrice">
-          </Bar>
-        </BarChart>
+        <Chart chartType="Line" width="100%" height="100%" data={closings} />
       </div>
     </>
   );
