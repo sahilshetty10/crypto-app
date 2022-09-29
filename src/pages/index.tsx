@@ -7,7 +7,7 @@ import { Chart } from "react-google-charts";
 
 export async function getServerSideProps() {
   const prisma = new PrismaClient();
-  let dbdata = await prisma.data.findMany({ take: 100 });
+  let dbdata = await prisma.data.findMany();
   return {
     props: {
       data: JSON.parse(JSON.stringify(dbdata)),
@@ -21,6 +21,8 @@ const index = ({ data }: any) => {
     let data = response.data
     window.alert(JSON.stringify(data))
   } 
+  const closings: any = [["", "Price"]];
+  data.map((d) => closings.push(["", parseFloat(d.closingPrice)]));
   return (
     <>
       <div className="">
