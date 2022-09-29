@@ -27,7 +27,7 @@ const index = ({ data }: any) => {
         <BarChart data={data} height={600} width={600}>
           <Bar dataKey="closingPrice">
             {data.map((entry: any, index: any) => (
-              <Cell fill={entry.longShortRatio > 2 ? "#fff" : "#000"} />
+              <Cell fill={entry.longShortRatio > 2 ? "#fff" : "#000"} key={index}/>
             ))}
           </Bar>
         </BarChart>
