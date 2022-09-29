@@ -21,8 +21,6 @@ const index = ({ data }: any) => {
     let data = response.data
     window.alert(JSON.stringify(data))
   } 
-  const closings: any = [["", "Price","Buy/Sell"]];
-  data.map((d:any) => closings.push(["", parseFloat(d.closingPrice),d.longShortRatio > upperValue ? 2 : d.longShortRatio > lowerValue ? 1 : 2]));
   return (
     <>
       <div className="">
