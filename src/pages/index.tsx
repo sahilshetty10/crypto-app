@@ -20,8 +20,16 @@ const index = ({ data }: any) => {
   } 
   return (
     <>
-      <div className=""><button onClick={handleUpdate}>Update DB</button></div>
-      <p>{JSON.stringify(data)}</p>
+      <div className="">
+        <button onClick={handleUpdate}>Update DB</button>
+        <BarChart data={data} height={600} width={600}>
+          <Bar dataKey="closingPrice">
+            {data.map((entry: any, index: any) => (
+              <Cell fill={entry.longShortRatio > 2 ? "#fff" : "#000"} />
+            ))}
+          </Bar>
+        </BarChart>
+      </div>
     </>
   );
 };
