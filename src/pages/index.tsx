@@ -21,6 +21,7 @@ const index = ({ data }: any) => {
   return (
     <>
       <div className=""><button onClick={handleUpdate}>Update DB</button></div>
+      <p>{JSON.stringify(data)}</p>
     </>
   );
 };
